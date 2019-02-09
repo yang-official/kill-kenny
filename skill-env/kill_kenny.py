@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-
-# This is a simple Hello World Alexa Skill, built using
-# the implementation of handler classes approach in skill builder.
 import logging
 
 from ask_sdk_core.skill_builder import SkillBuilder
@@ -27,23 +24,23 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speech_text = "Welcome to the Alexa Skills Kit, you can say hello!"
+        speech_text = "Okay, I'll kill Kenny for you."
 
         handler_input.response_builder.speak(speech_text).set_card(
-            SimpleCard("Hello World", speech_text)).set_should_end_session(
+            SimpleCard("Kill Kenny", speech_text)).set_should_end_session(
             False)
         return handler_input.response_builder.response
 
 
 class HelloWorldIntentHandler(AbstractRequestHandler):
-    """Handler for Hello World Intent."""
+    """Handler for Kill Kenny Intent."""
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return is_intent_name("HelloWorldIntent")(handler_input)
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speech_text = "Hello Python World from Classes!"
+        speech_text = "Okay, I'll kill Kenny for you."
 
         handler_input.response_builder.speak(speech_text).set_card(
             SimpleCard("Hello World", speech_text)).set_should_end_session(
@@ -59,7 +56,7 @@ class HelpIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speech_text = "You can say hello to me!"
+        speech_text = "You can kill Kenny."
 
         handler_input.response_builder.speak(speech_text).ask(
             speech_text).set_card(SimpleCard(
@@ -95,9 +92,9 @@ class FallbackIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         speech_text = (
-            "The Hello World skill can't help you with that.  "
-            "You can say hello!!")
-        reprompt = "You can say hello!!"
+            "The Kill Kenny skill can't help you with that.  "
+            "You can say kill Kenny!!")
+        reprompt = "You can say kill Kenny!!"
         handler_input.response_builder.speak(speech_text).ask(reprompt)
         return handler_input.response_builder.response
 
